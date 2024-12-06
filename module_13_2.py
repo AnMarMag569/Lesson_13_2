@@ -1,6 +1,6 @@
 import asyncio
-from aiogram import Bot, Dispatcher, types
-from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram import Bot, Dispatcher, executor, types
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 api = ''
 bot = Bot(token=api)
@@ -16,4 +16,4 @@ async def all_messages(message: types.Message):
     await message.answer("Введите команду /start, чтобы начать общение.")
 
 if __name__ == '__main__':
-    asyncio.run(dp.start_polling(skip_apdates=True))
+    executor.start_polling(dp, skip_updates = True)
